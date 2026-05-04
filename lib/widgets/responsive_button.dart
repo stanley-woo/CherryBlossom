@@ -3,10 +3,10 @@ import 'package:flutter_cubit/misc/colors.dart';
 
 class ResponsiveButton extends StatelessWidget {
 
-  bool? isResponsive;
-  double? width;
+  final bool? isResponsive;
+  final double? width;
 
-  ResponsiveButton({super.key, this.width, this.isResponsive=false});
+  const ResponsiveButton({super.key, this.width, this.isResponsive = false});
 
   @override
   Widget build(BuildContext context) {
