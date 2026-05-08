@@ -11,21 +11,34 @@ class ResponsiveButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
+    return isResponsive == true ? Flexible(
       child: Container(
-        width: isResponsive == true ? double.maxFinite : width,
+        width: double.maxFinite,
         height: 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: AppColors.mainColor, 
         ),
         child: Row(
-          mainAxisAlignment: isResponsive == true ? MainAxisAlignment.spaceAround : MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            isResponsive == true ? Container(margin: const EdgeInsets.only(left: 20), child: AppText(text: "Book Trip Now", color: Colors.white)) : Container(),
+            Container(margin: const EdgeInsets.only(left: 20), child: AppText(text: "Book Trip Now", color: Colors.white)),
             Image.asset("img/button-one.png"),
           ],
         ),
+      ),
+    ) : Container(
+      width: width,
+      height: 60,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: AppColors.mainColor, 
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset("img/button-one.png"),
+        ],
       ),
     );
   }
